@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/product.php';
 
-class Games extends Product
+class Game extends Product
 {
     public $color;
     public $weight;

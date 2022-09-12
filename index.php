@@ -1,11 +1,17 @@
 <?php
 
 include_once __DIR__ . '/models/product.php';
-include_once __DIR__ . '/models/games.php';
+include_once __DIR__ . '/models/game.php';
+include_once __DIR__ . '/models/food.php';
 
-$gioco1 = new Games("Pallina", "Games", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ", 5, "blue", "20g");
-$gioco2 = new Games("Pupazzo", "Games", "Proin ac efficitur orci, nec viverra augue. Donec diam magna", 7, "red", "40g");
-$games = [$gioco1, $gioco2]
+// giochi
+$gioco1 = new Game("Pallina", "Games", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ", 5, "blue", "20g");
+$gioco2 = new Game("Pupazzo", "Games", "Proin ac efficitur orci, nec viverra augue. Donec diam magna", 7, "red", "40g");
+$games = [$gioco1, $gioco2];
+// cibo
+$cibo1 = new Food("Croccantini", "Food", "Sed viverra consequat finibus. Donec et elit vestib.", 4, "Secco", "100g", "taglia piccola");
+$cibo2 = new Food("Scatoletta", "Food", "Curabitur gravida velit eu lorem semper, tris", 4, "Umido", "200g", "taglia grande");
+$foods = [$cibo1, $cibo2];
 ?>
 
 
@@ -49,20 +55,30 @@ $games = [$gioco1, $gioco2]
         <?php } ?>
     </div>
     <div>
-        <h2>Games</h2>
-        <?php foreach ($games as $game) { ?>
+        <h2>Foods</h2>
+        <?php foreach ($foods as $food) { ?>
             <ul>
                 <li>
-                    <h2><?php echo $game->getName() ?></h2>
+                    <h2><?php echo $food->getName() ?></h2>
                 </li>
                 <li>
-                    <h3><?php echo $game->getCategory() ?></h3>
+                    <h3>Categoria:
+                        <?php echo $food->getCategory() ?></h3>
                 </li>
-                <li>
-                    <?php echo $game->getDescription() ?>
+                <li><strong>Descrizione: </strong>
+                    <?php echo $food->getDescription() ?>
                 </li>
-                <li>
-                    <?php echo $game->getPrice() ?>
+                <li><strong>Prezzo: </strong>
+                    <?php echo $food->getPrice() ?>
+                </li>
+                <li><strong>tipo: </strong>
+                    <?php echo $food->getType() ?>
+                </li>
+                <li><strong>Quantità: </strong>
+                    <?php echo $food->getWeight() ?>
+                </li>
+                <li><strong>Taglia: </strong>
+                    <?php echo $food->getDogSize() ?>
                 </li>
             </ul>
         <?php } ?>
