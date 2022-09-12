@@ -3,6 +3,7 @@
 include_once __DIR__ . '/models/product.php';
 include_once __DIR__ . '/models/game.php';
 include_once __DIR__ . '/models/food.php';
+include_once __DIR__ . '/models/accessorie.php';
 
 // giochi
 $gioco1 = new Game("Pallina", "Games", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ", 5, "blue", "20g");
@@ -12,6 +13,10 @@ $games = [$gioco1, $gioco2];
 $cibo1 = new Food("Croccantini", "Food", "Sed viverra consequat finibus. Donec et elit vestib.", 4, "Secco", "100g", "taglia piccola");
 $cibo2 = new Food("Scatoletta", "Food", "Curabitur gravida velit eu lorem semper, tris", 4, "Umido", "200g", "taglia grande");
 $foods = [$cibo1, $cibo2];
+// accessori
+$accessorio1 = new Accessorie("Cuccia", "Accessori", "quis hendrerit neque", 20, "Altro", "Verde", "300g");
+$accessorio2 = new Accessorie("Spazzola", "Accessori", "quis hendrerit neque", 7, "Altro", "nero", "200g");
+$accessories = [$accessorio1, $accessorio2]
 ?>
 
 
@@ -69,7 +74,7 @@ $foods = [$cibo1, $cibo2];
                     <?php echo $food->getDescription() ?>
                 </li>
                 <li><strong>Prezzo: </strong>
-                    <?php echo $food->getPrice() ?>
+                    €<?php echo $food->getPrice() ?>
                 </li>
                 <li><strong>tipo: </strong>
                     <?php echo $food->getType() ?>
@@ -82,7 +87,35 @@ $foods = [$cibo1, $cibo2];
                 </li>
             </ul>
         <?php } ?>
-
+    </div>
+    <div>
+        <h2>Accessories</h2>
+        <?php foreach ($accessories as $accessorie) { ?>
+            <ul>
+                <li>
+                    <h2><?php echo $accessorie->getName() ?></h2>
+                </li>
+                <li>
+                    <h3>Categoria:
+                        <?php echo $accessorie->getCategory() ?></h3>
+                </li>
+                <li><strong>Descrizione: </strong>
+                    <?php echo $accessorie->getDescription() ?>
+                </li>
+                <li><strong>Prezzo: </strong>
+                    €<?php echo $accessorie->getPrice() ?>
+                </li>
+                <li><strong>tipo: </strong>
+                    <?php echo $accessorie->getType() ?>
+                </li>
+                <li><strong>Quantità: </strong>
+                    <?php echo $accessorie->getWeight() ?>
+                </li>
+                <li><strong>Colore: </strong>
+                    <?php echo $accessorie->getColor() ?>
+                </li>
+            </ul>
+        <?php } ?>
     </div>
 </body>
 
