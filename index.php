@@ -1,9 +1,13 @@
 <?php
-
+include __DIR__ . '/models/customer.php';
 include_once __DIR__ . '/models/product.php';
 include_once __DIR__ . '/models/game.php';
 include_once __DIR__ . '/models/food.php';
 include_once __DIR__ . '/models/accessorie.php';
+
+// customers
+$client1 = new Customer("Marco", "Bianchi", 24, "Visa");
+$client2 = new LoggedCustomer("Andrea", "Rossi", 27, "Mastercard", true, 20);
 
 // giochi
 $gioco1 = new Game("Pallina", "Games", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ", 5, "blue", "20g");
@@ -30,7 +34,7 @@ $accessories = [$accessorio1, $accessorio2]
     <title>Document</title>
 </head>
 <style>
-    body {
+    .products {
         display: flex;
     }
 
@@ -40,82 +44,91 @@ $accessories = [$accessorio1, $accessorio2]
 </style>
 
 <body>
-    <div>
-        <h2>Games</h2>
-        <?php foreach ($games as $game) { ?>
-            <ul>
-                <li>
-                    <h2><?php echo $game->getName() ?></h2>
-                </li>
-                <li>
-                    <h3>Categoria: <?php echo $game->getCategory() ?></h3>
-                </li>
-                <li><strong>Descrizione: </strong>
-                    <?php echo $game->getDescription() ?>
-                </li>
-                <li><strong>prezzo: </strong>
-                    €<?php echo $game->getPrice() ?>
-                </li>
-            </ul>
-        <?php } ?>
+    <div class="customer">
+        <h2>Cliente</h2>
+        <ul>
+            <li><strong>Nome: </strong><?php echo $client1->getFirst_name() ?></li>
+            <li><strong>Cognome: </strong> <?php echo $client1->getLast_name() ?></li>
+        </ul>
     </div>
-    <div>
-        <h2>Foods</h2>
-        <?php foreach ($foods as $food) { ?>
-            <ul>
-                <li>
-                    <h2><?php echo $food->getName() ?></h2>
-                </li>
-                <li>
-                    <h3>Categoria:
-                        <?php echo $food->getCategory() ?></h3>
-                </li>
-                <li><strong>Descrizione: </strong>
-                    <?php echo $food->getDescription() ?>
-                </li>
-                <li><strong>Prezzo: </strong>
-                    €<?php echo $food->getPrice() ?>
-                </li>
-                <li><strong>tipo: </strong>
-                    <?php echo $food->getType() ?>
-                </li>
-                <li><strong>Quantità: </strong>
-                    <?php echo $food->getWeight() ?>
-                </li>
-                <li><strong>Taglia: </strong>
-                    <?php echo $food->getDogSize() ?>
-                </li>
-            </ul>
-        <?php } ?>
-    </div>
-    <div>
-        <h2>Accessories</h2>
-        <?php foreach ($accessories as $accessorie) { ?>
-            <ul>
-                <li>
-                    <h2><?php echo $accessorie->getName() ?></h2>
-                </li>
-                <li>
-                    <h3>Categoria:
-                        <?php echo $accessorie->getCategory() ?></h3>
-                </li>
-                <li><strong>Descrizione: </strong>
-                    <?php echo $accessorie->getDescription() ?>
-                </li>
-                <li><strong>Prezzo: </strong>
-                    €<?php echo $accessorie->getPrice() ?>
-                </li>
-                <li><strong>tipo: </strong>
-                    <?php echo $accessorie->getType() ?>
-                </li>
-                <li><strong>Quantità: </strong>
-                    <?php echo $accessorie->getWeight() ?>
-                </li>
-                <li><strong>Colore: </strong>
-                    <?php echo $accessorie->getColor() ?>
-                </li>
-            </ul>
-        <?php } ?>
+    <div class="products">
+        <div>
+            <h2>Games</h2>
+            <?php foreach ($games as $game) { ?>
+                <ul>
+                    <li>
+                        <h2><?php echo $game->getName() ?></h2>
+                    </li>
+                    <li>
+                        <h3>Categoria: <?php echo $game->getCategory() ?></h3>
+                    </li>
+                    <li><strong>Descrizione: </strong>
+                        <?php echo $game->getDescription() ?>
+                    </li>
+                    <li><strong>prezzo: </strong>
+                        €<?php echo $game->getPrice() ?>
+                    </li>
+                </ul>
+            <?php } ?>
+        </div>
+        <div>
+            <h2>Foods</h2>
+            <?php foreach ($foods as $food) { ?>
+                <ul>
+                    <li>
+                        <h2><?php echo $food->getName() ?></h2>
+                    </li>
+                    <li>
+                        <h3>Categoria:
+                            <?php echo $food->getCategory() ?></h3>
+                    </li>
+                    <li><strong>Descrizione: </strong>
+                        <?php echo $food->getDescription() ?>
+                    </li>
+                    <li><strong>Prezzo: </strong>
+                        €<?php echo $food->getPrice() ?>
+                    </li>
+                    <li><strong>tipo: </strong>
+                        <?php echo $food->getType() ?>
+                    </li>
+                    <li><strong>Quantità: </strong>
+                        <?php echo $food->getWeight() ?>
+                    </li>
+                    <li><strong>Taglia: </strong>
+                        <?php echo $food->getDogSize() ?>
+                    </li>
+                </ul>
+            <?php } ?>
+        </div>
+        <div>
+            <h2>Accessories</h2>
+            <?php foreach ($accessories as $accessorie) { ?>
+                <ul>
+                    <li>
+                        <h2><?php echo $accessorie->getName() ?></h2>
+                    </li>
+                    <li>
+                        <h3>Categoria:
+                            <?php echo $accessorie->getCategory() ?></h3>
+                    </li>
+                    <li><strong>Descrizione: </strong>
+                        <?php echo $accessorie->getDescription() ?>
+                    </li>
+                    <li><strong>Prezzo: </strong>
+                        €<?php echo $accessorie->getPrice() ?>
+                    </li>
+                    <li><strong>tipo: </strong>
+                        <?php echo $accessorie->getType() ?>
+                    </li>
+                    <li><strong>Quantità: </strong>
+                        <?php echo $accessorie->getWeight() ?>
+                    </li>
+                    <li><strong>Colore: </strong>
+                        <?php echo $accessorie->getColor() ?>
+                    </li>
+                </ul>
+            <?php } ?>
+        </div>
     </div>
 </body>
 

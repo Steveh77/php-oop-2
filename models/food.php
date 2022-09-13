@@ -4,9 +4,9 @@ require_once __DIR__ . '/product.php';
 
 class Food extends Product
 {
-    public $type;
-    public $weight;
-    public $dogSize;
+    protected $type;
+    protected $weight;
+    protected $dogSize;
 
 
     public function __construct($name, $category, $description, $price, $type, $weight, $dogSize)

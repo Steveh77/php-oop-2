@@ -4,8 +4,8 @@ require_once __DIR__ . '/product.php';
 
 class Game extends Product
 {
-    public $color;
-    public $weight;
+    protected $color;
+    protected $weight;
 
 
     public function __construct($name, $category, $description, $price, $color, $weight)

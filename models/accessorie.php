@@ -4,9 +4,9 @@ require_once __DIR__ . '/product.php';
 
 class Accessorie extends Product
 {
-    public $type;
-    public $color;
-    public $weight;
+    protected $type;
+    protected $color;
+    protected $weight;
 
 
     public function __construct($name, $category, $description, $price, $type, $color, $weight)

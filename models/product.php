@@ -1,10 +1,10 @@
 <?php
 class Product
 {
-    public $name;
-    public $category;
-    public $description;
-    public $price;
+    protected $name;
+    protected $category;
+    protected $description;
+    protected $price;
 
 
     public function __construct($name, $category, $description, $price)
